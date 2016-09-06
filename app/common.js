@@ -25,10 +25,10 @@ export class TextBlock extends Component {
 export class MyToolbar extends Component {
 	constructor(props) {
         super(props);
-        this.state = {actionText: 'Test'};
+        this.state = {actionText: strings.toolbar.MainText};
         this.toolbarActions = [
-            {title: 'Settings'},
-            {title: 'About'},
+            {title: strings.toolbar.actions.Settings},
+            {title: strings.toolbar.actions.About},
         ];
     }
     
@@ -112,7 +112,14 @@ outerContainer: {
 });
 
 export const strings = {
-	'Greeting': 'Welcome to my app!',
+	toolbar: {
+		actions: {
+			'Settings': 'Settings',
+			'About': 'About',
+		},
+		'MainText': 'Test',
+	},
+	'Greeting': 'Welcome!',
 	'Instructions': 'To get started, edit index.android.js',
 	'Instructions2': "Double tap R on your keyboard to reload,\nShake or press menu button for dev menu",
 };
