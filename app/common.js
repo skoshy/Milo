@@ -23,20 +23,34 @@ export class TextBlock extends Component {
 }
 
 export class MyToolbar extends Component {
-	render() {
+	constructor(props) {
+        super(props);
+        this.state = {actionText: 'Test'};
+        this.toolbarActions = [
+            {title: 'Settings'},
+            {title: 'About'},
+        ];
+    }
+    
+    render() {
 		return (
 			<View style={styles.containerToolbar}>
                 <ToolbarAndroid
-                    title={"Hi"}
+                    title={this.state.actionText}
                     style={styles.toolbar}
                     titleColor={'#000'}
-                    actions={[
-                        {title: 'Settings'},
-                        {title: 'About'},
-                    ]}/>
+                    onActionSelected={this._onActionSelected}
+                    actions = {this.toolbarActions}
+                    />
             </View>
 		);
 	}
+    
+    _onActionSelected = (position) => {
+        this.setState({
+            actionText: "Selected: " + this.toolbarActions[position].title,
+        });
+    };
 }
 
 export class BlinkText extends Component {
