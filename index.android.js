@@ -15,6 +15,7 @@ import {
 import {
 	TextBlock,
 	BlinkText,
+	MyToolbar,
 	styles,
 	strings
 } from './app/common';
@@ -25,23 +26,26 @@ class Milo extends Component {
 		uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
 	};
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-			{strings.Greeting}
-        </Text>
-        <Text style={styles.instructions}>
-			{strings.Instructions}
-        </Text>
-		<TextBlock name="Dude" style={styles.randomText}/>
-		<TextBlock name="Bro"/>
-		<TextBlock name="Pal"/>
-		<TextBlock name="Buddy"/>
-		<BlinkText text="I'm blinking, look at me!"/>
-		<Image source={pic} style={{width: 193, height: 110}}/>
-        <Text style={styles.instructions}>
-			{strings.Instructions2}
-        </Text>
-      </View>
+		<View style={styles.outerContainer}>
+			<MyToolbar/>
+			<View style={styles.container}>
+				<Text style={styles.welcome}>
+					{strings.Greeting}
+				</Text>
+				<Text style={styles.instructions}>
+					{strings.Instructions}
+				</Text>
+				<TextBlock name="Dude" style={styles.randomText}/>
+				<TextBlock name="Bro"/>
+				<TextBlock name="Pal"/>
+				<TextBlock name="Buddy"/>
+				<BlinkText text="I'm blinking, look at me!"/>
+				<Image source={pic} style={{width: 193, height: 110}}/>
+				<Text style={styles.instructions}>
+					{strings.Instructions2}
+				</Text>
+			</View>
+		</View>
     );
   }
 }

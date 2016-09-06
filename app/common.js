@@ -10,13 +10,31 @@ import {
   StyleSheet,
   Text,
   Image,
-  View
+  View,
+  ToolbarAndroid
 } from 'react-native';
 
 export class TextBlock extends Component {
 	render() {
 		return (
-			<Text style={this.props.style}>Hi {this.props.name}</Text>
+            <Text style={this.props.style}>Hi {this.props.name}</Text>
+		);
+	}
+}
+
+export class MyToolbar extends Component {
+	render() {
+		return (
+			<View style={styles.containerToolbar}>
+                <ToolbarAndroid
+                    title={"Hi"}
+                    style={styles.toolbar}
+                    titleColor={'#000'}
+                    actions={[
+                        {title: 'Settings'},
+                        {title: 'About'},
+                    ]}/>
+            </View>
 		);
 	}
 }
@@ -41,11 +59,17 @@ export class BlinkText extends Component {
 }
 
 export const styles = StyleSheet.create({
+outerContainer: {
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: 'pink',
+},
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'orange',
   },
   welcome: {
     fontSize: 30,
@@ -59,6 +83,17 @@ export const styles = StyleSheet.create({
   },
   randomText: {
     color: 'red',
+  },
+  containerToolbar: {
+    justifyContent: 'flex-start',
+    alignItems: 'stretch',
+    backgroundColor: '#000',
+    flexDirection: 'row',
+  },
+  toolbar: {
+    flex: 1,
+    backgroundColor: 'steelblue',
+    height: 56,
   },
 });
 
